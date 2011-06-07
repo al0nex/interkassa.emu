@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ru">
+<head>
+	<title>Запрос на оплату</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+
+	<style type="text/css">
+	form { display: inline; }
+	label { display: block; }
+	</style>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+	var form_action = '../response/(status|success|fail).php';
+	var ik_paysystem_alias = '<?=$ik_paysystem_alias?>';
+	var ik_payment_state = '<?=$ik_payment_state?>';
+	var ik_currency_exch = '<?=$ik_currency_exch?>';
+
+	function submit() {
+
+		// form_action = ...
+		ik_shop_id = $('#fake input[name=ik_shop_id]').val();
+		ik_payment_amount = $('#fake input[name=ik_payment_amount]').val();
+		ik_payment_id = $('#fake input[name=ik_payment_id]').val();
+		ik_payment_desc = $('#fake input[name=ik_payment_desc]').val();
+		ik_paysystem_alias = $('#paysystem').val();
+		ik_baggage_fields = $('#fake input[name=ik_baggage_fields]').val();
+		// ik_payment_state = ...
+		ik_currency_exch = $('#paysystem option[value='+ik_paysystem_alias+']').attr('exchangeRate');
+			fake_sign = $('#fake input[name=ik_sign_hash]').attr('checked');
+		ik_sign_hash = (fake_sign) ? 'fake' : '';
+
+		$('#response input[name=ik_shop_id]').val(ik_shop_id);
+		$('#response input[name=ik_payment_amount]').val(ik_payment_amount);
+		$('#response input[name=ik_payment_id]').val(ik_payment_id);
+		$('#response input[name=ik_payment_desc]').val(ik_payment_desc);
+		$('#response input[name=ik_paysystem_alias]').val(ik_paysystem_alias);
+		$('#response input[name=ik_baggage_fields]').val(ik_baggage_fields);
+		$('#response input[name=ik_payment_state]').val(ik_payment_state);
+		$('#response input[name=ik_currency_exch]').val(ik_currency_exch);
+		$('#response input[name=ik_sign_hash]').val(ik_sign_hash);
+
+		$('#response').attr('action', form_action).submit();
+	}
+
+	$('input[value=status(success)]').click(function () {
+		form_action = '../response/status.php';
+		ik_payment_state = 'success';
+		submit();
+	});
+
+	$('input[value=status(fail)]').click(function () {
+		form_action = '../response/status.php';
+		ik_payment_state = 'fail';
+		submit();
+	});
+
+	$('input[value=success]').click(function () {
+		form_action = '../response/success.php';
+		ik_payment_state = 'success';
+		submit();
+	});
+
+	$('input[value=fail]').click(function () {
+		form_action = '../response/fail.php';
+		ik_payment_state = 'fail';
+		submit();
+	});
+
+});
+</script>
+
+</head>
+<body>
+
+<h1>Запрос на оплату</h1>
+
+<pre>
+Обязательные параметры:
+	ik_shop_id		'<?=$ik_shop_id?>'
+	ik_payment_amount	'<?=$ik_payment_amount?>'
+	ik_payment_id		'<?=$ik_payment_id?>'
+	ik_payment_desc		'<?=$ik_payment_desc?>'
+	ik_paysystem_alias	'<?=$ik_paysystem_alias?>'
+
+Необязательные параметры:
+	ik_baggage_fields	'<?=$ik_baggage_fields?>'
+	ik_sign_hash		'<?=$ik_sign_hash?>'
+	ik_success_url		'<?=$ik_success_url?>'
+	ik_success_method	'<?=$ik_success_method?>'
+	ik_fail_url		'<?=$ik_fail_url?>'
+	ik_fail_method		'<?=$ik_fail_method?>'
+	ik_status_url		'<?=$ik_status_url?>'
+	ik_status_method	'<?=$ik_status_method?>'
+
+Параметры, которые вообще не должны здесь быть:
+<?php
+	$allowed = array('ik_shop_id', 'ik_payment_amount',
+	'ik_payment_id', 'ik_payment_desc', 'ik_paysystem_alias',
+	'ik_baggage_fields', 'ik_sign_hash', 'ik_success_url',
+	'ik_success_method', 'ik_fail_url', 'ik_fail_method',
+	'ik_status_url', 'ik_status_method');
+
+	foreach ($_POST as $param => $value) {
+		if (!in_array($param, $allowed)) {
+			echo "\t{$param}\t{$value}\n";
+		}
+	}
+?>
+
+Ошибки:<span style="color: red">
+<?php
+	foreach ($allowed as $param) {
+		if (!validate_global($param))
+			echo "\t$param: {$last_error}\n";
+	}
+
+	if ($ik_sign_hash != ik_request_sign()) {
+		echo "\tik_sign_hash: expected to be ".ik_request_sign()."\n";
+	}
+?>
+</span></pre>
+
+<p>Способ оплаты:
+	<select id="paysystem">
+<?php
+	$xml = simplexml_load_file('paysystems.xml');
+	foreach ($xml as $paysystem) {
+		echo "<option exchangeRate='{$paysystem['exchangeRate']}' value='{$paysystem['alias']}'>$paysystem ({$paysystem['currencyName']})</option>";
+	}
+?>
+	</select>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#paysystem').val('<?=$ik_paysystem_alias?>');
+	});
+</script>
+</p>
+
+<p>
+<form id="response" action="__form_action__" method="post" target="_blank">
+
+	<input type="hidden" name="ik_shop_id" value="{ik_shop_id}">
+	<input type="hidden" name="ik_payment_amount" value="{ik_payment_amount}">
+	<input type="hidden" name="ik_payment_id" value="{ik_payment_id}">
+	<input type="hidden" name="ik_payment_desc" value="{ik_payment_desc}">
+	<input type="hidden" name="ik_paysystem_alias" value="{ik_paysystem_alias}">
+
+	<input type="hidden" name="ik_baggage_fields" value="{ik_baggage_fields}">
+	<input type="hidden" name="ik_payment_timestamp" value="<?=$ik_payment_timestamp?>">
+
+	<input type="hidden" name="ik_payment_state" value="{ik_payment_state}">
+	<input type="hidden" name="ik_trans_id" value="<?=$ik_trans_id?>">
+	<input type="hidden" name="ik_currency_exch" value="{ik_currency_exch}">
+	<input type="hidden" name="ik_fees_payer" value="<?=$ik_fees_payer?>">
+	<input type="hidden" name="ik_sign_hash" value="{ik_sign_hash}">
+
+	<input type="hidden" name="ik_status_url" value="<?=$ik_status_url?>">
+	<input type="hidden" name="ik_status_method" value="<?=$ik_status_method?>">
+	<input type="hidden" name="ik_success_url" value="<?=$ik_success_url?>">
+	<input type="hidden" name="ik_success_method" value="<?=$ik_success_method?>">
+	<input type="hidden" name="ik_fail_url" value="<?=$ik_fail_url?>">
+	<input type="hidden" name="ik_fail_method" value="<?=$ik_fail_method?>">
+</form>
+</p>
+
+<p id="fake">
+	<label><input type="text" name="ik_shop_id" value="<?=$ik_shop_id?>">
+		(подменить ik_shop_id)</label>
+
+	<label><input type="text" name="ik_payment_amount" value="<?=$ik_payment_amount?>">
+		(подменить ik_payment_amount)</label>
+
+	<label><input type="text" name="ik_payment_id" value="<?=$ik_payment_id?>">
+		(подменить ik_payment_id)</label>
+
+	<label><input type="text" name="ik_payment_desc" value="<?=$ik_payment_desc?>">
+		(подменить ik_payment_desc)</label>
+
+	<label><input type="text" name="ik_baggage_fields" value="<?=$ik_baggage_fields?>">
+		(подменить ik_baggage_fields)</label>
+
+	<label><input type="checkbox" name="ik_sign_hash">
+		Использовать неправильный ik_sign_hash</label>
+</p>
+<p>
+	<input type="button" value="status(success)">
+	<input type="button" value="status(fail)">
+	<input type="button" value="success">
+	<input type="button" value="fail">
+</p>
+
+</body>
+</html>

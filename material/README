@@ -1,0 +1,43 @@
+
+	interkassa.tech.doc
+		Платежный шлюз "INTERKASSA"
+		Интерфейс взаимодействия
+		Руководство администратора торговой системы
+		Версия: 1.2
+
+	request.php	Форма запроса платежа
+	status.php	Форма оповещения о платеже
+	success.php	Форма выполненного платежа
+	fail.php	Форма невыполненного платежа
+
+Таблица используемых параметров
+
+	REQUEST			RESPONSE
+	--------------------------------------------------------------------------------------------
+				status			success			fail
+	--------------------------------------------------------------------------------------------
+
+Обязательные параметры
+	ik_shop_id		ik_shop_id		ik_shop_id		ik_shop_id
+	ik_payment_amount	ik_payment_amount
+	ik_payment_id		ik_payment_id		ik_payment_id		ik_payment_id
+	ik_payment_desc		ik_payment_desc
+	ik_paysystem_alias	ik_paysystem_alias	ik_paysystem_alias	ik_paysystem_alias
+
+НЕобязательные параметры
+	ik_baggage_fields	ik_baggage_fields	ik_baggage_fields	ik_baggage_fields
+	ik_sign_hash		ik_sign_hash
+	ik_success_url		
+	ik_success_method	
+	ik_fail_url		
+	ik_fail_method		
+	ik_status_url		
+	ik_status_method	
+
+Заполняются ИНТЕРКАССОЙ
+				ik_payment_timestamp	ik_payment_timestamp	ik_payment_timestamp
+				ik_payment_state	ik_payment_state	ik_payment_state
+				ik_trans_id		ik_trans_id		ik_trans_id
+				ik_currency_exch
+				ik_fees_payer	
+

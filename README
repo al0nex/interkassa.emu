@@ -1,0 +1,50 @@
+interkassa.emu -- Эмулятор системы приема платежей ИнтерКасса
+		  (https://interkassa.ru)
+
+Описание
+
+	interkassa.emu -- способ отладить код взаимодействия с
+	ИнтерКассой (а также разобраться в том как это взаимодействие
+	происходит).
+
+Настройка магазина
+
+	Достаточно заменить
+
+		http://interkassa.com/lib/payment.php
+	на
+		http://interkassa.emu/lib/payment.php
+
+Настройка эмулятора (для Debian + apache2)
+
+	1.  Добавьте сл. в файл /etc/hosts
+
+		127.0.0.1	interkassa.emu
+
+	2.  Добавьте сл. в файл /etc/apache2/httpd.conf
+
+		<VirtualHost *:80>
+			ServerName interkassa.emu
+			DocumentRoot /path/to/interkassa.emu/src
+		</VirtualHost>
+
+		<VirtualHost *:80>
+			ServerName www.interkassa.emu
+			DocumentRoot /path/to/interkassa.emu/src
+		</VirtualHost>
+
+	3.  Перезапустите apache
+
+		$ sudo /etc/init.d/apache2 restart
+
+	4.  Отредактируйте config.php
+
+Примечание
+
+	В каталоге material/, помимо официальной спецификации, находятся
+	формы (<form>...</form>) для отправки и приема данных:
+
+	4.1.  Форма запроса платежа
+	4.2.  Форма оповещения о платеже
+	4.3.  Форма выполненного платежа
+	4.4.  Форма невыполненного платежа

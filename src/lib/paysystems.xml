@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paysystems>
+<paysystem id="1" alias="rbkmoney" currencyName="RBK RUR" exchangeRate="33.9" state="1">RBK Money</paysystem>
+<paysystem id="2" alias="egold" currencyName="E-Gold USD" exchangeRate="7" state="0">E-Gold</paysystem>
+<paysystem id="3" alias="webmoneyz" currencyName="WMZ" exchangeRate="1" state="1">WebMoney</paysystem>
+<paysystem id="4" alias="webmoneyu" currencyName="WMU" exchangeRate="8.05" state="1">WebMoney</paysystem>
+<paysystem id="5" alias="webmoneyr" currencyName="WMR" exchangeRate="31.9" state="1">WebMoney</paysystem>
+<paysystem id="60" alias="zpaymentr" currencyName="ZP RUB" exchangeRate="31.9" state="1">Z-payment</paysystem>
+<paysystem id="67" alias="telemoneyr" currencyName="TM RUR" exchangeRate="33.9" state="1">Telemoney</paysystem>
+<paysystem id="6" alias="webmoneye" currencyName="WME" exchangeRate="0.8" state="1">WebMoney</paysystem>
+<paysystem id="7" alias="ukrmoneyu" currencyName="UM UAH" exchangeRate="6.9" state="0">UkrMoney</paysystem>
+<paysystem id="8" alias="ukrmoneyz" currencyName="UM USD" exchangeRate="1.02" state="0">UkrMoney</paysystem>
+<paysystem id="9" alias="ukrmoneyr" currencyName="UM RUR" exchangeRate="34.2" state="0">UkrMoney</paysystem>
+<paysystem id="23" alias="webmoneyg" currencyName="WMG" exchangeRate="0.037" state="1">WebMoney</paysystem>
+<paysystem id="45" alias="webmoneyb" currencyName="WMB" exchangeRate="3300" state="1">WebMoney</paysystem>
+<paysystem id="10" alias="ukrmoneye" currencyName="UM EUR" exchangeRate="0.72" state="0">UkrMoney</paysystem>
+<paysystem id="55" alias="w1terminalr" currencyName="RUR" exchangeRate="32.9" state="1">Терминалы России</paysystem>
+<paysystem id="57" alias="w1terminalu" currencyName="UAH" exchangeRate="8.06452" state="0">Терминалы Украины</paysystem>
+<paysystem id="61" alias="w1ukashz" currencyName="USD" exchangeRate="1" state="1">Ukash</paysystem>
+<paysystem id="71" alias="wmterminalu" currencyName="UAH" exchangeRate="8.05" state="1">Терминалы Украины</paysystem>
+<paysystem id="11" alias="libertyz" currencyName="LR USD" exchangeRate="1.02" state="1">Liberty Reserve</paysystem>
+<paysystem id="64" alias="wmnotez" currencyName="WMZ" exchangeRate="1.0283" state="1">WMnote</paysystem>
+<paysystem id="12" alias="pecunix" currencyName="Pecunix USD" exchangeRate="1.1" state="0">Pecunix</paysystem>
+<paysystem id="16" alias="limonexwmz" currencyName="Limonex WMZ" exchangeRate="1.05" state="0">Limonex</paysystem>
+<paysystem id="52" alias="libertye" currencyName="LR EUR" exchangeRate="0.85" state="1">Liberty Reserve</paysystem>
+<paysystem id="65" alias="wmnotee" currencyName="WME" exchangeRate="0.85" state="1">WMnote</paysystem>
+<paysystem id="13" alias="limonexumu" currencyName="Limonex UM-UAH" exchangeRate="8.5" state="0">Limonex</paysystem>
+<paysystem id="62" alias="wmnotel" currencyName="LVL" exchangeRate="0.55" state="1">WMnote</paysystem>
+<paysystem id="14" alias="limonexumz" currencyName="Limonex UM-USD" exchangeRate="1.05" state="0">Limonex</paysystem>
+<paysystem id="15" alias="limonexeg" currencyName="Limonex E-GOLD" exchangeRate="37.6" state="0">Limonex</paysystem>
+<paysystem id="22" alias="moneybookers" currencyName="MB USD" exchangeRate="1.16" state="0">Moneybookers</paysystem>
+<paysystem id="17" alias="privatbank" currencyName="UAH" exchangeRate="8.2" state="0">PrivatBank</paysystem>
+<paysystem id="18" alias="ukrbank" currencyName="UAH" exchangeRate="8.05" state="1">Украинский банк</paysystem>
+<paysystem id="19" alias="sbrf" currencyName="RUR" exchangeRate="31.9" state="1">Сбербанк РФ</paysystem>
+<paysystem id="59" alias="w1ruspostr" currencyName="RUR" exchangeRate="31.9" state="1">Почта России</paysystem>
+<paysystem id="63" alias="alfabank" currencyName="RUR" exchangeRate="31.9" state="1">Альфабанк (Альфаклик)</paysystem>
+<paysystem id="66" alias="vtbbank" currencyName="RUR" exchangeRate="31.9" state="1">ВТБ24 (Телебанк)</paysystem>
+<paysystem id="20" alias="rusbank" currencyName="RUR" exchangeRate="31.9" state="1">Российский банк</paysystem>
+<paysystem id="21" alias="eurobank" currencyName="USD" exchangeRate="1.03" state="0">Wire Transfer</paysystem>
+<paysystem id="25" alias="moneymailr" currencyName="MM RUR" exchangeRate="33.9" state="1">MoneyMail</paysystem>
+<paysystem id="24" alias="moneymailz" currencyName="MM USD" exchangeRate="1.01" state="1">MoneyMail</paysystem>
+<paysystem id="26" alias="moneymaile" currencyName="MM EUR" exchangeRate="0.85" state="1">MoneyMail</paysystem>
+<paysystem id="27" alias="perfectmoneyz" currencyName="PM USD" exchangeRate="1" state="1">PerfectMoney</paysystem>
+<paysystem id="28" alias="imoney" currencyName="iMoney UAH" exchangeRate="9.2" state="0">iMoney</paysystem>
+<paysystem id="53" alias="perfectmoneye" currencyName="PM EUR" exchangeRate="0.8" state="1">PerfectMoney</paysystem>
+<paysystem id="29" alias="liqpayz" currencyName="LP USD" exchangeRate="1" state="1">LiqPay</paysystem>
+<paysystem id="30" alias="liqpayu" currencyName="LP UAH" exchangeRate="8.05" state="1">LiqPay</paysystem>
+<paysystem id="31" alias="liqpayr" currencyName="LP RUR" exchangeRate="32.9" state="1">LiqPay</paysystem>
+<paysystem id="32" alias="liqpaye" currencyName="LP EUR" exchangeRate="0.8" state="1">LiqPay</paysystem>
+<paysystem id="33" alias="liqpaycardz" currencyName="USD" exchangeRate="1" state="1">Visa, Mastercard</paysystem>
+<paysystem id="47" alias="privat24z" currencyName="P24 USD" exchangeRate="1.0101" state="1">Privat24</paysystem>
+<paysystem id="34" alias="nsmep" currencyName="НСМЭП UAH" exchangeRate="8.1314" state="1">НСМЕП</paysystem>
+<paysystem id="48" alias="privat24u" currencyName="P24 UAH" exchangeRate="8.1314" state="1">Privat24</paysystem>
+<paysystem id="35" alias="bankophone" currencyName="BOP UAH" exchangeRate="8" state="0">Bank-O-Phone</paysystem>
+<paysystem id="49" alias="privat24e" currencyName="P24 EUR" exchangeRate="0.8" state="1">Privat24</paysystem>
+<paysystem id="36" alias="unicard" currencyName="UK USD" exchangeRate="1.01" state="1">Unikarta</paysystem>
+<paysystem id="56" alias="monexyu" currencyName="MoneXy UAH" exchangeRate="8.1314" state="1">MoneXy</paysystem>
+<paysystem id="58" alias="pincodez" currencyName="USD" exchangeRate="1" state="1">PIN-CODE</paysystem>
+<paysystem id="37" alias="w1r" currencyName="W1 RUR" exchangeRate="32.9" state="1">Единый кошелек</paysystem>
+<paysystem id="68" alias="monexyz" currencyName="MoneXy USD" exchangeRate="1" state="1">MoneXy</paysystem>
+<paysystem id="38" alias="w1z" currencyName="W1 USD" exchangeRate="1" state="1">Единый кошелек</paysystem>
+<paysystem id="54" alias="w1u" currencyName="W1 UAH" exchangeRate="8.05" state="1">Единый кошелек</paysystem>
+<paysystem id="69" alias="monexyr" currencyName="MoneXy RUR" exchangeRate="31.9" state="1">MoneXy</paysystem>
+<paysystem id="39" alias="w1e" currencyName="W1 EUR" exchangeRate="0.85" state="0">Единый кошелек</paysystem>
+<paysystem id="70" alias="monexye" currencyName="MoneXy EUR" exchangeRate="0.8" state="1">MoneXy</paysystem>
+<paysystem id="40" alias="mobw" currencyName="Mobw RUR" exchangeRate="34" state="0">Мобильный кошелек</paysystem>
+<paysystem id="41" alias="easypay" currencyName="EP BYR" exchangeRate="3000" state="0">EasyPay</paysystem>
+<paysystem id="42" alias="liqpaycardu" currencyName="UAH" exchangeRate="8.05" state="1">Visa, Mastercard</paysystem>
+<paysystem id="43" alias="liqpaycardr" currencyName="RUR" exchangeRate="32.9" state="1">Visa, Mastercard</paysystem>
+<paysystem id="44" alias="liqpaycarde" currencyName="EUR" exchangeRate="0.8" state="1">Visa, Mastercard</paysystem>
+<paysystem id="46" alias="webcreds" currencyName="WC RUR" exchangeRate="33.9" state="1">WebCreds</paysystem>
+<paysystem id="50" alias="yandexmoney" currencyName="Y.M RUR" exchangeRate="32.9" state="0">Yandex.Money</paysystem>
+<paysystem id="51" alias="smscoin" currencyName="USD" exchangeRate="1" state="0">SMSCoin</paysystem>
+</paysystems>

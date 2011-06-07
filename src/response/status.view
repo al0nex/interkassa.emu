@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ru">
+<head>
+	<title>4.2. Форма оповещения о платеже</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h1>4.2. Форма оповещения о платеже</h1>
+
+<form action="<?=$ik_status_url?>" method="<?=$ik_status_method?>">
+
+<pre>
+Параметры, которые будут переданны:
+	ik_shop_id:		'<?=$ik_shop_id?>'
+	ik_payment_amount:	'<?=$ik_payment_amount?>'
+	ik_payment_id:		'<?=$ik_payment_id?>'
+	ik_payment_desc:	'<?=$ik_payment_desc?>'
+	ik_paysystem_alias:	'<?=$ik_paysystem_alias?>'
+	ik_baggage_fields:	'<?=$ik_baggage_fields?>'
+	ik_payment_timestamp:	'<?=$ik_payment_timestamp?>'
+	ik_payment_state:	'<?=$ik_payment_state?>'
+	ik_trans_id:		'<?=$ik_trans_id?>'
+	ik_currency_exch:	'<?=$ik_currency_exch?>'
+	ik_fees_payer:		'<?=$ik_fees_payer?>'
+	ik_sign_hash:		'<?=$ik_sign_hash?>'<?=($fake_sign) ? " (неправильный)" : "\n"?>
+
+Получатель:
+	ik_status_url:		'<?=$ik_status_url?>'
+	ik_status_method:	'<?=$ik_status_method?>'
+</pre>
+
+<input type="hidden" name="ik_shop_id" value="<?=$ik_shop_id?>">
+<input type="hidden" name="ik_payment_amount" value="<?=$ik_payment_amount?>">
+<input type="hidden" name="ik_payment_id" value="<?=$ik_payment_id?>">
+<input type="hidden" name="ik_payment_desc" value="<?=$ik_payment_desc?>">
+<input type="hidden" name="ik_paysystem_alias" value="<?=$ik_paysystem_alias?>">
+<input type="hidden" name="ik_baggage_fields" value="<?=$ik_baggage_fields?>">
+<input type="hidden" name="ik_payment_timestamp" value="<?=$ik_payment_timestamp?>">
+<input type="hidden" name="ik_payment_state" value="<?=$ik_payment_state?>">
+<input type="hidden" name="ik_trans_id" value="<?=$ik_trans_id?>">
+<input type="hidden" name="ik_currency_exch" value="<?=$ik_currency_exch?>">
+<input type="hidden" name="ik_fees_payer" value="<?=$ik_fees_payer?>">
+<input type="hidden" name="ik_sign_hash" value="<?=$ik_sign_hash?>">
+
+<input type="submit" value="Отправить">
+
+</form>
+
+</body>
+</html>
